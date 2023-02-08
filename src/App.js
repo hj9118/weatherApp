@@ -1,12 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import WeatherCard from './component/WeatherCard';
 import { fetchWeather } from './api';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
+import { ImSearch } from 'react-icons/im';
+import { RiVoiceprintFill } from 'react-icons/ri';
+import {RxReset} from 'react-icons/rx'
 
 function App() {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition,
+  } = useSpeechRecognition();
+
+  if (!browserSupportsSpeechRecognition) {
+    alert("Browser doesn't support speech recognition.");
+  }
+  {SpeechRecognition.startListening({
+    continuous: true,
+    language: 'en-US',
+  })}
+
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState('');
+
+  let voice = transcript.slice(0, -1);
+  
+  useEffect(() => {
+    setCity(voice);
+  }, [voice, button])
 
   const handleChange = (e) => {
     setCity(e.target.value);
@@ -31,7 +58,13 @@ function App() {
           value={city}
           onChange={handleChange}
         />
-        <button type='submit'>Search</button>
+        <button type='submit'>
+          <ImSearch />
+        </button>
+        <button type='button' onClick={() => setCity(' ')}        
+        >
+          <RxReset />
+        </button>
       </form>
 
       {error ? (

@@ -26,6 +26,7 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 6px;
+  margin-right: 8px;
 }
 
 .app_heading {
