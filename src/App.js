@@ -6,7 +6,6 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
 import { ImSearch } from 'react-icons/im';
-import { RiVoiceprintFill } from 'react-icons/ri';
 import {RxReset} from 'react-icons/rx'
 
 function App() {
@@ -29,11 +28,12 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState('');
 
-  let voice = transcript.slice(0, -1);
+  let voice = transcript.slice(0);
+  voice = voice.endsWith('.') ? voice.slice(0, -1) : voice;
   
   useEffect(() => {
     setCity(voice);
-  }, [voice, button])
+  }, [voice])
 
   const handleChange = (e) => {
     setCity(e.target.value);
@@ -52,7 +52,7 @@ function App() {
     <div className='App'>
       <h1 className='app_heading'>Weather App</h1>
       <form onSubmit={handleSubmit}>
-        <input
+        <input autoFocus
           type='text'
           placeholder='Enter city'
           value={city}
@@ -61,7 +61,7 @@ function App() {
         <button type='submit'>
           <ImSearch />
         </button>
-        <button type='button' onClick={() => setCity(' ')}        
+        <button type='reset'        
         >
           <RxReset />
         </button>
