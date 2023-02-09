@@ -5,10 +5,11 @@ import { fetchWeather } from './api';
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
-import { ImSearch } from 'react-icons/im';
-import {RxReset} from 'react-icons/rx'
+import { RxReset } from 'react-icons/rx';
+import { MdKeyboardVoice, MdSearch } from 'react-icons/md';
 
 function App() {
+  const [record, setRecord] = useState(false);
   const {
     transcript,
     listening,
@@ -19,10 +20,20 @@ function App() {
   if (!browserSupportsSpeechRecognition) {
     alert("Browser doesn't support speech recognition.");
   }
-  {SpeechRecognition.startListening({
-    continuous: true,
-    language: 'en-US',
-  })}
+
+  const ChangeMode = (e) => {
+    setRecord((record) => !record);
+    e.preventDefault();
+  };
+
+  const startRecord = () => {
+    SpeechRecognition.startListening({
+      continuous: true,
+      language: 'en-US',
+    });
+  };
+
+  const stopRecord = SpeechRecognition.stopListening;
 
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
@@ -30,10 +41,10 @@ function App() {
 
   let voice = transcript.slice(0);
   voice = voice.endsWith('.') ? voice.slice(0, -1) : voice;
-  
+
   useEffect(() => {
     setCity(voice);
-  }, [voice])
+  }, [voice]);
 
   const handleChange = (e) => {
     setCity(e.target.value);
@@ -52,18 +63,22 @@ function App() {
     <div className='App'>
       <h1 className='app_heading'>Weather App</h1>
       <form onSubmit={handleSubmit}>
-        <input autoFocus
+        <input
+          autoFocus
           type='text'
           placeholder='Enter city'
           value={city}
           onChange={handleChange}
         />
         <button type='submit'>
-          <ImSearch />
+          <MdSearch />
         </button>
-        <button type='reset'        
+        <button
+          type='button'
+          onClick={record ? startRecord : stopRecord}
+          onContextMenu={ChangeMode}
         >
-          <RxReset />
+          {record ? <MdKeyboardVoice /> : <RxReset />}
         </button>
       </form>
 
