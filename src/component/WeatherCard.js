@@ -4,7 +4,7 @@ const WeatherCard = ({ weather }) => {
   const [temp, setTemp] = useState(true);
 
     const changeTemp = () => {
-      setTemp(temp => !temp);
+        setTemp(temp => !temp);
     };
   return (
     <div className='weather-card'>
@@ -33,8 +33,8 @@ const WeatherCard = ({ weather }) => {
             <span className='param-label'>Details</span>
           </div>
           <div className='parameters'>
-            <span className='param-label' onClick={changeTemp}>Feels Like:</span>
-            <span className='param-val'>
+            <span className='param-label' >Feels Like:</span>
+            <span className='param-val' onClick={changeTemp}>
               {weather ? (temp ? (weather.main?.feels_like - 273.15).toFixed(2) : ((weather.main?.feels_like -273.15)*9 /5 +32).toFixed(2)) : '-'}
               {temp ? <span>℃</span> : <span>℉</span>}
             </span>
