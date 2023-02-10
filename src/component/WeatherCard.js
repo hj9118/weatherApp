@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const WeatherCard = ({ weather }) => {
-  const [temp, setTemp] = useState(true);
-
+    const [temp, setTemp] = useState(true);
     const changeTemp = () => {
-        setTemp(temp => !temp);
-    };
-  return (
+            setTemp(temp => !temp);
+        };
+
+    return (
     <div className='weather-card'>
       <div className='card-header'>
         <div>
@@ -46,9 +46,9 @@ const WeatherCard = ({ weather }) => {
             </span>
           </div>
           <div className='parameters'>
-            <span className='param-label'>Pressure: </span>
+            <span className='param-label'>Wind: </span>
             <span className='param-val'>
-              {weather ? weather.main?.pressure : '-'} hPs
+              {weather ? weather.wind.speed : '-'} m/s
             </span>
           </div>
         </div>
