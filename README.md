@@ -28,13 +28,13 @@ __말하기 모드 (speech mode)__ </br>
 ---
 
 ## 블로그 개발 일지
-- [react-speech-recognition 활용하기-1](https://velog.io/@oneuleun/react-speech-recognition-활용하기-1)
+[react-speech-recognition 활용하기-1](https://velog.io/@oneuleun/react-speech-recognition-활용하기-1)
 </br>
 원본 코드 파악하기. (음성 인식 영역, 출력 값 파악 및 해결) </br>
 react-speech-recognition 설치 이후 설정. </br>
 추가 및 변경 기능 설정. </br>
 
-- [react-speech-recognition 활용하기-2](https://velog.io/@oneuleun/react-speech-recognition-활용하기-2)
+[react-speech-recognition 활용하기-2](https://velog.io/@oneuleun/react-speech-recognition-활용하기-2)
 </br>
 __1차 완성본.__ </br>
 온도 단위 변경 (섭씨-화씨) </br>
@@ -42,7 +42,7 @@ __1차 완성본.__ </br>
 에러 발견 및 해결 방안 </br>
 
 
-- [react-speech-recognition 활용하기-3](https://velog.io/@oneuleun/react-speech-recognition-활용하기-3)
+[react-speech-recognition 활용하기-3](https://velog.io/@oneuleun/react-speech-recognition-활용하기-3)
 </br>
 1편 기능 추가 및 변경 사항 완료
 에러 발견 및 해결 방안
