@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 import WeatherCard from './component/WeatherCard';
 import { fetchWeather } from './api';
@@ -21,11 +21,12 @@ function App() {
     alert("Browser doesn't support speech recognition.");
   }
 
+  const ref = useRef();
+  
   const ChangeMode = (e) => {
     setRecord((record) => !record);
     e.preventDefault();
   };
-
   const startRecord = () => {
     SpeechRecognition.startListening({
       continuous: true,
@@ -33,8 +34,8 @@ function App() {
     });
     resetTranscript();
   };
-  
   const stopRecord = () => {
+    ref.current.focus();
     setCity('');
   };
 
@@ -44,10 +45,6 @@ function App() {
 
   let voice = transcript.slice(0);
   voice = voice.endsWith('.') ? voice.slice(0, -1) : voice;
-
-  useEffect(() => {
-    setCity(voice);
-  }, [voice]);
 
   const handleChange = (e) => {
     setCity(e.target.value);
@@ -71,6 +68,7 @@ function App() {
           type='text'
           placeholder='Enter city'
           value={city}
+          ref={ref}
           onChange={handleChange}
         />
         <button type='submit'>
