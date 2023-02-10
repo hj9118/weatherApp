@@ -7,6 +7,8 @@
 ## 기본 설명
 weather api를 활용한 리액트 날씨 앱 프로젝트의 디벨롭 버전. </br>
 [원본 소스코드](https://github.com/imtiyazCode/weatherApp)
+- OpenWeatherMap API (날씨 정보)
+- react-speech-recognition (npm) 사용
 
 ## 주요 기능
 __기존 코드__
