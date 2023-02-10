@@ -22,7 +22,7 @@ function App() {
   }
 
   const ref = useRef();
-  
+
   const ChangeMode = (e) => {
     setRecord((record) => !record);
     e.preventDefault();
@@ -76,11 +76,14 @@ function App() {
         </button>
         <button
           type='button'
-          onClick={record ? (startRecord) : stopRecord}
+          onClick={record ? startRecord : stopRecord}
           onContextMenu={ChangeMode}
         >
           {record ? <MdKeyboardVoice /> : <RxReset />}
         </button>
+        <span className='app_mode'>
+          {record ? 'Voice mode' : 'Typing mode'}
+        </span>
       </form>
 
       {error ? (
