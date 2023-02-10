@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# 날씨 앱 (with 음성인식 기능)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src='https://velog.velcdn.com/images/oneuleun/post/b97febdd-d089-460f-af37-7901b9c18858/image.gif'>
 
-## Available Scripts
+[➡ Demo 알아보기](https://weather-app-with-speech-recognition.netlify.app/)
 
-In the project directory, you can run:
+## 기본 설명
+weather api를 활용한 리액트 날씨 앱 프로젝트의 디벨롭 버전. </br>
+[원본 소스코드](https://github.com/imtiyazCode/weatherApp)
 
-### `npm start`
+## 주요 기능
+__기존 코드__
+input 영역에 첫 렌더링시 자동 포커스. 값 입력 후 엔터키 혹은 돋보기 버튼으로 해당 도시 현재 온도, 날씨, 체감온도, 습도, 대기압 확인 가능. </br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+__변경 사항__
+- 대기압은 풍속으로 변경되었음. 기존 값은 [블로그 1편](https://velog.io/@oneuleun/react-speech-recognition-활용하기-1) 첫 gif사진 참고
+- 우클릭시 모드 변경. 일반 클릭시 값을 비워준다. (현재 이에 대한 안내사항 방식을 고민)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+__쓰기 모드 (typing mode)__ </br>
+- input 영역 자동 포커스는 유지. 값 입력 이후 확인 가능
+- 다른 도시 입력시, 우측 버튼 클릭으로 값 비우기 및 포커스 생성. </br>
+※ 말하기 모드 사용 이후, 클릭시 음성인식 기능 해제 </br>
 
-### `npm test`
+__말하기 모드 (speech mode)__ </br>
+- 모드 변경이후 클릭시 음성인식 기능 시작. </br>
+- 클릭시 값을 비우고 새로운 값을 인식 받음. </br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 블로그 개발 일지
+- [react-speech-recognition 활용하기-1](https://velog.io/@oneuleun/react-speech-recognition-활용하기-1)
+</br>
+원본 코드 파악하기. (음성 인식 영역, 출력 값 파악 및 해결) </br>
+react-speech-recognition 설치 이후 설정. </br>
+추가 및 변경 기능 설정. </br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [react-speech-recognition 활용하기-2](https://velog.io/@oneuleun/react-speech-recognition-활용하기-2)
+</br>
+__1차 완성본.__ </br>
+온도 단위 변경 (섭씨-화씨) </br>
+작성 모드 변경 첫 단계 (typing/speech) </br>
+에러 발견 및 해결 방안 </br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [react-speech-recognition 활용하기-3](https://velog.io/@oneuleun/react-speech-recognition-활용하기-3)
+</br>
+1편 기능 추가 및 변경 사항 완료
+에러 발견 및 해결 방안
