@@ -31,9 +31,12 @@ function App() {
       continuous: true,
       language: 'en-US',
     });
+    resetTranscript();
   };
-
-  const stopRecord = SpeechRecognition.stopListening;
+  
+  const stopRecord = () => {
+    setCity('');
+  };
 
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
@@ -75,7 +78,7 @@ function App() {
         </button>
         <button
           type='button'
-          onClick={record ? startRecord : stopRecord}
+          onClick={record ? (startRecord) : stopRecord}
           onContextMenu={ChangeMode}
         >
           {record ? <MdKeyboardVoice /> : <RxReset />}
