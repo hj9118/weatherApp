@@ -34,10 +34,6 @@ button {
   text-align: center;
 }
 
-.app_mode {
-  margin-left: 5px;
-}
-
 .weather-data {
   display: flex;
   flex-wrap: wrap;

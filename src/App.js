@@ -12,7 +12,6 @@ function App() {
   const [record, setRecord] = useState(false);
   const {
     transcript,
-    listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
@@ -86,7 +85,7 @@ function App() {
         >
           {record ? <MdKeyboardVoice /> : <RxReset />}
         </button>
-        <span className='app_mode'>
+        <span>
           {record ? 'Voice mode' : 'Typing mode'}
         </span>
       </form>

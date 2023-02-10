@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {MdOutlineInfo} from 'react-icons/md'
 
 const WeatherCard = ({ weather }) => {
     const [temp, setTemp] = useState(true);
@@ -26,7 +27,7 @@ const WeatherCard = ({ weather }) => {
       <div className='card-body'>
         <h2 className='weather-temp' onClick={changeTemp}>
           {weather ? (temp ? Math.round(weather.main?.temp - 273.15) : Math.round((weather.main?.temp -273.15)*9 /5 +32)) : ''}
-          {temp == true ? <span>℃</span> : <span>℉</span>}
+          {temp === true ? <span>℃</span> : <span>℉</span>}
         </h2>
         <div className='weather-details'>
           <div className='parameters'>
@@ -53,6 +54,7 @@ const WeatherCard = ({ weather }) => {
           </div>
         </div>
       </div>
+      <span className='app_notice'><MdOutlineInfo /> Change the unit by clicking on the temperature above.</span>
     </div>
   );
 };
