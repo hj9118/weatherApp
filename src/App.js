@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './App.css';
 import WeatherCard from './component/WeatherCard';
 import { fetchWeather } from './api';
@@ -36,6 +36,7 @@ function App() {
   };
   const stopRecord = () => {
     ref.current.focus();
+    SpeechRecognition.stopListening();
     setCity('');
   };
 
@@ -45,6 +46,10 @@ function App() {
 
   let voice = transcript.slice(0);
   voice = voice.endsWith('.') ? voice.slice(0, -1) : voice;
+
+  useEffect(() => {
+    setCity(voice);
+  }, [voice]);
 
   const handleChange = (e) => {
     setCity(e.target.value);
